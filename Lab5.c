@@ -223,7 +223,7 @@ Complex divide(Complex *c) {
    assert(denominator != 0 && "Denominator should not be zero");
    (*(c+((top-1)%STACK_SIZE))).real = (((*(c+(top%STACK_SIZE))).real * (*(c+((top-1)%STACK_SIZE))).real) + ((*(c+(top%STACK_SIZE))).imag * (*(c+((top-1)%STACK_SIZE))).imag))/denominator;
    // result.real = ((c0.real*c1.real) + (c1.imag*c0.imag))/denominator;
-   (*(c+((top-1)%STACK_SIZE))).imag = (((*(c+((top-1)%STACK_SIZE))).real * (*(c+(top%STACK_SIZE))).imag) - ((*(c+(top%STACK_SIZE))).real * (*(c+((top-1)%STACK_SIZE))).imag))/denominator;
+   (*(c+((top-1)%STACK_SIZE))).imag = (double) (((*(c+((top-1)%STACK_SIZE))).real * (*(c+(top%STACK_SIZE))).imag) - ((*(c+(top%STACK_SIZE))).real * (*(c+((top-1)%STACK_SIZE))).imag))/denominator;
    // result.imag = ((c0.real*c1.imag) - (c1.real*c0.imag))/denominator;
    (*(c+(top%STACK_SIZE))).imag = 0;
    (*(c+(top%STACK_SIZE))).real = 0;
